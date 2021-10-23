@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}List{% endblock %}
+{% block content %}
+    <h4>Click on the list item to mark its status</h4>
+    {% for obj in obj_name %}
+        <p class="striked">{{obj.title}}</p>
+        <button class="btn">Update</button>
+    {% endfor %}
+{% endblock content %}
