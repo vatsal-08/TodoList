@@ -6,6 +6,7 @@ from .forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.views.generic import CreateView
+from django.views.generic import FormView
 
 
 class CustomLoginView(LoginView):

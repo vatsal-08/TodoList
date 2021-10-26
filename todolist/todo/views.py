@@ -9,22 +9,23 @@ from django.urls import reverse_lazy
 class TodoView(LoginRequiredMixin, ListView):
     model = Todo
     template_name = 'todo/todos.html'
-    login_url = '/accounts/login/'
+    context_object_name = 'todos'
+    login_url = 'login/'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["tasks"] = context["tasks"].filter(user=self.request.user)
-        context["count"] = context["tasks"].filter(status=False).count()
+        context["todos"] = context["todos"].filter(user=self.request.user)
+        context["count"] = context["todos"].filter(status=False).count()
         return context
 
 
 class TodoDetailView(LoginRequiredMixin, DetailView):
     model = Todo
     template_name = 'todo/todo_detail.html'
-    login_url = '/accounts/login/'
+    login_url = '/login/'
 
 
-class TodoCreateView(CreateView):
+class TodoCreateView(LoginRequiredMixin, CreateView):
     model = Todo
     fields = ["title", "description", "status"]
     success_url = reverse_lazy('todo-view')

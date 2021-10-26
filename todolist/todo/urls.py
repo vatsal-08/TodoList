@@ -5,5 +5,4 @@ urlpatterns = [
     path('<int:pk>/detail', TodoDetailView.as_view(), name='todo-detail'),
     path('<int:pk>/update', TodoUpdateView.as_view(), name='todo-update'),
     path('create/', TodoCreateView.as_view(), name='todo-create'),
-
 ]
