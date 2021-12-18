@@ -1,0 +1,26 @@
+* {
+    font-family: 'Playfair Display', serif;
+    margin-left: 1%;
+}
+a h1{
+    font-size: 2.5rem;
+}
+h5 {
+    margin-top: 1%;
+}
+.list{
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+.list:hover{
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgb(64, 158, 64);
+}
+.auth{
+    text-decoration: none;
+}
+.auth:hover{
+    text-decoration: underline;
+}

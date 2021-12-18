@@ -1,28 +1,20 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.urls.base import reverse
 from django.views import generic
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from .forms import UserCreationForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import login
-from django.views.generic import CreateView
+from django.contrib.auth import login, logout
 from django.views.generic import FormView
-
-
-class CustomLoginView(LoginView):
-    template_name = 'account/login.html'
-    fields = '__all__'
-    redirect_authenticated_user = True
-
-    def get_success_url(self):
-        return reverse_lazy('todo-view')
-
+from django.contrib import auth
+from .forms import *
 
 class SignUpView(FormView):
-    template_name = 'todo/signin.html'
+    template_name = 'accounts/signup.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('todo-view')
 
     def form_valid(self, form):
         user = form.save()
@@ -34,3 +26,8 @@ class SignUpView(FormView):
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(SignUpView, self).get(*args, **kwargs)
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')

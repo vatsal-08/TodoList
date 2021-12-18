@@ -1,11 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'todo/base.html' %}
 {% load static %}
 {% block title %}SignUp{% endblock %}
 {% block content %}
-    <h2>Signup</h2>
+    <h2><a  class="auth" href="{% url 'signup' %}">Signup</a></h2>
     <form action="" method="post">
         {% csrf_token %} 
-        {{form.as_p}}
-        <button type="submit">SignUp</button>
+        <p>{{form.username.label_tag}}{{form.username}}</p>
+        <p>{{form.password1.label_tag}}{{form.password1}}</p>
+        <p>{{form.password2.label_tag}}{{form.password2}}</p>
+        {{form.errors}}
+        <button class="btn btn-success" type="submit">SignUp</button>
     </form>
+    <br>
+    <p><a class="btn btn-primary" href="{% url 'login'%}">Login</a></p>
 {% endblock content %}

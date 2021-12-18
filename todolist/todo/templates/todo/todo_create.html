@@ -1,0 +1,12 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+{% block title %}Todo Create{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>{{form.title.label_tag}} {{form.title}}</p>
+        <p>{{form.description.label_tag}} {{form.description}}</p>
+        <p>{{form.status.label_tag}} {{form.status}}</p>        
+        <p><a class="btn btn-primary"  href="{% url 'todo-view'%}">Create</a></p>
+    </form>
+{% endblock content %} 

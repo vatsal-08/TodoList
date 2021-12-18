@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'todo/base.html' %}
 {% load static %}
-{% block title %}{{todos.title}}{% endblock %}
+{% block title %}{{task.title}}{% endblock %}
 {% block content %}
-    <h4>Click on the list item to mark its status</h4>
-    {% for obj in todos %}
-        <p class="striked">{{obj.title}}</p>
-    {% endfor %}
+    <p><h4>Created:{{task.created}}</h4></p>
+    <p><h3>Title:{{task.title}}</h3></p>
+    <p><h3>Description:{{task.description}}</h3></p>
+    <p><a class="btn btn-primary" href="{% url 'todo-update' task.id %}">Update</a><a class="btn btn-warning"  href="{% url 'todo-delete' task.id %}">Delete</a></p>
 {% endblock content %}
