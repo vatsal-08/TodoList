@@ -1,26 +1,41 @@
 * {
-    font-family: 'Playfair Display', serif;
-    margin-left: 1%;
+  font-family: "Playfair Display", serif;
+  margin-left: 1%;
 }
-a h1{
-    font-size: 2.5rem;
+a h1 {
+  font-size: 2.5rem;
 }
 h5 {
-    margin-top: 1%;
+  margin-top: 1%;
 }
-.list{
-    text-decoration: none;
-    color: black;
-    font-size: larger;
+.list {
+  text-decoration: none;
+  color: black;
+  font-size: larger;
 }
-.list:hover{
+.list:hover {
     text-decoration: underline;
     font-weight: bold;
     color: rgb(64, 158, 64);
 }
-.auth{
+.auth {
     text-decoration: none;
 }
-.auth:hover{
+.auth:hover {
     text-decoration: underline;
+}
+h4 b {
+    font-family: serif;
+}
+.arrow i {
+    color: #FCE205;
+    font-size: 2rem;
+}
+.arrow i:hover{
+    color: #FFC107;
+}
+.updatdesc *{
+  padding: 0;
+  margin: 0;
+  vertical-align: text-top;
 }

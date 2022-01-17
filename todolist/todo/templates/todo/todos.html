@@ -2,9 +2,10 @@
 {% load static %}
 {% block title %}List{% endblock %}
 {% block content %}
-    <h4>Click on the list item to mark its status</h4>
+    <h4>Total:<b>{{total}}</b> out of which<b>{{count}}</b> have status off</h4>
+    <br>
     {% for obj in todos %}
-        <p><a href="{% url 'todo-detail' obj.pk %}" class="list">{{obj.title}}</a></p>
+        <p><a href="{% url 'todo-detail' obj.pk %}" class="list"><b>{{ forloop.counter}}) </b> {{obj.title}} </a>{% if obj.status %}<i class="fas fa-check-circle"></i>{% endif %}</p>
     {% endfor %}
-    <p><a class="btn btn-primary" href="{% url 'todo-create' %}">Create new</a></p>
+    <p><a class="btn btn-primary" href="{% url 'todo-create' %}">Create new</a> <a class="btn btn-danger" href="{% url 'todos-delete' %}">Delete all finished</a></p>
 {% endblock content %} 

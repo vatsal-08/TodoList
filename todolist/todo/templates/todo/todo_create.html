@@ -1,12 +1,15 @@
 {% extends 'todo/base.html' %}
 {% load static %}
 {% block title %}Todo Create{% endblock %}
+{% block content1 %}
+<a href="{% url 'todo-view' %}" class="arrow"><i class="fas fa-arrow-circle-left"></i></a>
+{% endblock content1 %}
 {% block content %}
     <form method="post">
         {% csrf_token %}
         <p>{{form.title.label_tag}} {{form.title}}</p>
-        <p>{{form.description.label_tag}} {{form.description}}</p>
+        <p class="updatdesc">{{form.description.label_tag}} {{form.description}}</p>
         <p>{{form.status.label_tag}} {{form.status}}</p>        
-        <p><a class="btn btn-primary"  href="{% url 'todo-view'%}">Create</a></p>
+        <p><button class="btn btn-primary" type="submit" >Create</button></p>
     </form>
 {% endblock content %} 
